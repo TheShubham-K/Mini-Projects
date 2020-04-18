@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <style>
+        div {
+            background-color: pink;
+            height: 500 px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Welcome to local storage</h1>
+        <p>
+            <h2>Web Storage</h2><br>
+
+        </p>
+        <div class="container" class="col-12 col-sm-8">
+            <p><b>The Web Storage is one of the great features of HTML5. With the Web Storage feature, web applications
+                    can
+                    locally store data within the browser on the client side. It stores data in the form of key/value
+                    pair
+                    on
+                    the browser. Web Storage sometimes also known as DOM storage.</b></p>
+
+            <li>Web Storage can use storage space upto 5MB per domain. (The browser software may prompt the user if
+                the space limit is reached).</li>
+            <li>It will not send data to the server side, hence it is faster than cookies storage.
+            </li>
+            <li>The data stored by local Storage never expires, but cookies data expires after some time or session.
+            </li>
+            <li>Web Storage is more secure than cookies.</li>
+
+            <h2>Types of Web Storage</h2>
+            <strong>There are two types of web storage with different scope and lifetime.</strong>
+            <li><b>Local Storage</b> : Local Storages uses Windows.localStaorage object which stores data and available
+                for every page.
+                But data persist even if the browser is closed and reopened (Stores data with no Expiration).</li>
+            <li><b>Session Storage</b> : Session Storage uses Windows.sessionStorage object which stores data for one
+                session and data will be lost if the window or browser tab will be closed.</li>
+
+        </div>
+        <div>
+            <h2>Example of counter Using Session Storage</h2>
+            <button onclick="counter();">click me</button>
+            <div id="output">See the result here:</div>
+            <script type="text/javascript">
+                function counter() {
+                    if (sessionStorage.hits) {
+                        sessionStorage.hits = Number(sessionStorage.hits) + 1;
+                    } else {
+                        sessionStorage.hits = 1;
+                    }
+                    document.getElementById('output').innerHTML = "You have clicked counter button for" + " " +
+                        sessionStorage.hits + " " + "times";
+                }
+            </script>
+            <p>Click the counter button to see the total counts. </p>
+            <p>Now, if you close the browser then it will reset to initial value. </p>
+        </div>
+        <div>
+            <h2>Example of Local storage</h2>
+            <input type="button" value="Add to Local storage" id="l1">
+            <br>
+            <input type="button" value="Show from Local Storage" id="s1">
+            <p id="p1">Click Above to see..</p>
+            <script type="text/javascript" src="js/index.js"></script>
+        </div>
+
+    </center>
+
+
+    <!--  -->
+</body>
+
+</html>

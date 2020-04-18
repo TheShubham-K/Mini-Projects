@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web SQLite</title>
+    <script type="text/javascript">
+      function sample() {
+        var db = openDatabase("mydatabase", "1.0", "Test DB", 2 * 1024 * 1024);
+        var a = document.getElementById("t1").value;
+        var b = document.getElementById("t2").value;
+        db.transaction(function (tx) {
+          tx.executeSql(
+            "CREATE TABLE IF NOT EXISTS EMPLOYEE (id Unique, name)"
+          );
+          tx.executeSql("INSERT INTO EMPLOYEE VALUES (?, ?)", [a, b]);
+        });
+        alert("Record Inserted");
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <div class="container">
+        <h1>Simple Example to insert record</h1>
+        <input type="text" id="t1" / style="border: 2mm; border-style: groove;">
+        <input type="text" id="t2" / style="border: 2mm; border-style: groove;">
+        <button
+          onclick="sample(); "
+          style="border: 2mm; border-style: double; width: 2mm 2mm 2mm 2mm;"
+        >
+          Click to Insert
+        </button>
+      </div>
+    </center>
+  </body>
+</html>
